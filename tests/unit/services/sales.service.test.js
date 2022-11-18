@@ -15,5 +15,19 @@ describe('Testes da camada "Services", referente as vendas', () => {
     expect(result).to.be.deep.equal(serviceMocks.registeredNewSaleReturn);
   });
 
+  it('Retorna todas as vendas', async () => {
+    sinon.stub(salesModel, 'readAllSales').resolves(serviceMocks.allSalesReturn);
+    const result = await salesService.readAllSales();
+
+    expect(result).to.be.deep.equal(serviceMocks.allSalesReturn);
+  });
+
+  it('Retorna uma venda por Id', async () => {
+    sinon.stub(salesModel, 'getSaleById').resolves(serviceMocks.salesByIdReturn);
+    const result = await salesService.getSaleById(1);
+
+    expect(result).to.be.deep.equal(serviceMocks.salesByIdReturn);
+  });
+
   afterEach(sinon.restore);
 });

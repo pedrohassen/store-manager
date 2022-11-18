@@ -14,11 +14,18 @@ describe('Testes da camada "Models", referente as vendas', () => {
     expect(result).to.be.deep.equal(1);
   });
 
+  it('Retorna todas as vendas', async () => {
+    sinon.stub(connection, 'execute').resolves(modelMocks.allSalesDb);
+    const result = await salesModel.readAllSales();
+
+    expect(result).to.be.deep.equal(modelMocks.allSalesReturn);
+  });
+
   it('Retorna uma venda por Id', async () => {
     sinon.stub(connection, 'execute').resolves(modelMocks.selectDbReturn);
     const result = await salesModel.getSaleById(1);
 
-    expect(result).to.be.deep.equal(modelMocks.registeredProducts)
+    expect(result).to.be.deep.equal(modelMocks.salesByIdReturn)
   });
 
   afterEach(sinon.restore);
