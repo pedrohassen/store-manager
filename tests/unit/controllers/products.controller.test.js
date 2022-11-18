@@ -10,7 +10,7 @@ const { readAllProducts, readProductId, insertProduct } = require('../../../src/
 
 const controllerMocks = require('./mocks/products.controller.mock');
 
-describe('Testes da camada "Controllers"', () => {
+describe('Testes da camada "Controllers", referente aos produtos', () => {
   it('Retorna todos os produtos', async () => {
     sinon.stub(productsService, 'readAllProducts').resolves(controllerMocks.allProductsResponse);
 

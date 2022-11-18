@@ -6,7 +6,7 @@ const productsModel = require('../../../src/models/products.model');
 
 const modelMocks = require('./mocks/products.model.mock');
 
-describe('Testes da camada "Models"', () => {
+describe('Testes da camada "Models", referente aos produtos', () => {
   it('Retorna todos os produtos', async () => {
     sinon.stub(connection, 'execute').resolves(modelMocks.allProductsDb);
     const result = await productsModel.readAllProducts();
