@@ -20,7 +20,6 @@ const readProductId = async (req, res) => {
 
 const insertProduct = async (req, res) => {
   const { name } = req.body;
-  console.log(name);
   const result = await productsServices.insertProduct({ name });
   return res.status(HTTP_CREATED_STATUS).json(result);
 };

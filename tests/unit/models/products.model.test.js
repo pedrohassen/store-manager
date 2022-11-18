@@ -21,5 +21,13 @@ describe('Testes da camada "Models"', () => {
     expect(result).to.be.deep.equal(modelMocks.productResponse);
   });
 
+  it('Insere um novo produto', async () => {
+    sinon.stub(connection, 'execute').resolves(modelMocks.insertResponseDb);
+    const newProduct = { name: 'ProdutoA' };
+    const result = await productsModel.insertProduct(newProduct);
+
+    expect(result).to.be.deep.equal(modelMocks.insertResponse)
+  });
+
   afterEach(sinon.restore);
 });

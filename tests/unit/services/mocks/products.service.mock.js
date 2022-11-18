@@ -8,7 +8,17 @@ const productResponse = {
   id: 1, name: 'Martelo de Thor',
 };
 
+const insertResponse = {
+  "fieldCount": 0,
+  "affectedRows": 1,
+  "insertId": 4,
+  "info": "",
+  "serverStatus": 2,
+  "warningStatus": 0
+};
+
 module.exports = {
   allProductsResponse,
   productResponse,
+  insertResponse,
 };

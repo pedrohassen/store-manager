@@ -8,7 +8,13 @@ const productResponse = {
   id: 1, name: 'Martelo de Thor',
 };
 
+const insertResponse = {
+  id: 4, name: 'ProdutoA',
+};
+
+
 module.exports = {
   allProductsResponse,
   productResponse,
+  insertResponse,
 };
