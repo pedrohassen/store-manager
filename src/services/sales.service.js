@@ -19,7 +19,13 @@ const registerNewSale = async (products) => {
   };
 };
 
+const readAllSales = async () => {
+  const result = salesModel.readAllSales();
+  return result;
+};
+
 module.exports = {
   getSaleById,
   registerNewSale,
+  readAllSales,
 };
