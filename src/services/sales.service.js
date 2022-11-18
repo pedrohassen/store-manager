@@ -24,8 +24,14 @@ const readAllSales = async () => {
   return result;
 };
 
+const deleteSale = async (id) => {
+  const result = salesModel.deleteSale(id);
+  return result;
+};
+
 module.exports = {
   getSaleById,
   registerNewSale,
   readAllSales,
+  deleteSale,
 };

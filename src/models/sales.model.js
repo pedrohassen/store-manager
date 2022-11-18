@@ -50,8 +50,16 @@ const readAllSales = async () => {
   return result;
 };
 
+const deleteSale = async (id) => {
+  await connection.execute(
+    'DELETE FROM StoreManager.sales WHERE id = ?',
+    [id],
+  );
+};
+
 module.exports = {
   registerSoldProduct,
   getSaleById,
   readAllSales,
+  deleteSale,
 };
