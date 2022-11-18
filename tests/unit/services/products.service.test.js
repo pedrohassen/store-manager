@@ -30,5 +30,12 @@ describe('Testes da camada "Services", referente aos produtos', () => {
     expect(result).to.be.deep.equal(serviceMocks.productResponse);
   });
 
+  it('Atualiza um produto', async () => {
+    sinon.stub(productsModel, 'updateProduct').resolves(serviceMocks.updatedProductResponse);
+    const result = await productsModel.updateProduct(1, 'ProdutoX');
+
+    expect(result).to.be.deep.equal(serviceMocks.updatedProductResponse);
+  });
+
   afterEach(sinon.restore);
 });

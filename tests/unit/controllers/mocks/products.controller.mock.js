@@ -12,9 +12,13 @@ const insertResponse = {
   id: 4, name: 'ProdutoA',
 };
 
+const updatedProductResponse = {
+  id: 1, name: 'ProdutoX',
+};
 
 module.exports = {
   allProductsResponse,
   productResponse,
   insertResponse,
+  updatedProductResponse,
 };

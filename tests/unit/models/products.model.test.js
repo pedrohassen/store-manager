@@ -29,5 +29,12 @@ describe('Testes da camada "Models", referente aos produtos', () => {
     expect(result).to.be.deep.equal(modelMocks.insertResponse)
   });
 
+  it('Atualiza um produto', async () => {
+    sinon.stub(connection, 'execute').onFirstCall().resolves().onSecondCall().resolves([[modelMocks.updatedProductResponse]]);
+    const result = await productsModel.updateProduct(1, 'ProdutoX');
+
+    expect(result).to.be.deep.equal(modelMocks.updatedProductResponse);
+  });
+
   afterEach(sinon.restore);
 });

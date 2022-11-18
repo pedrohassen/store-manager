@@ -17,8 +17,13 @@ const insertResponse = {
   "warningStatus": 0
 };
 
+const updatedProductResponse = {
+  id: 1, name: 'ProdutoX',
+};
+
 module.exports = {
   allProductsResponse,
   productResponse,
   insertResponse,
+  updatedProductResponse,
 };

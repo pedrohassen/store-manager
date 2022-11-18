@@ -37,10 +37,15 @@ const insertResponse = {
   "warningStatus": 0
 };
 
+const updatedProductResponse = {
+  id: 1, name: 'ProdutoX',
+};
+
 module.exports = {
   allProductsDb,
   allProductsResponse,
   productResponse,
   insertResponseDb,
   insertResponse,
+  updatedProductResponse,
 };
