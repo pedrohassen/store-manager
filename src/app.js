@@ -14,7 +14,6 @@ const nameValidation = require('./middlewares/nameValidation');
 const {
   productIdExists,
   productIdExistsOnDb,
-  productIdValidation,
   saleIdValidation,
 } = require('./middlewares/productIdValidation');
 const { quantityExists, quantityGreaterThanZero } = require('./middlewares/quantityValidation');
@@ -29,7 +28,7 @@ app.get('/', (_request, response) => {
 
 app.get('/products', readAllProducts);
 
-app.get('/products/:id', productIdValidation, readProductId);
+app.get('/products/:id', readProductId);
 
 app.post('/products', nameValidation, insertProduct);
 
