@@ -37,7 +37,7 @@ describe('Testes da camada "Services", referente aos produtos', () => {
     expect(result).to.be.deep.equal(serviceMocks.updatedProductResponse);
   });
 
-  it('Deleta um produto', async () => {
+  it('Deleta um produto por id', async () => {
     sinon.stub(productsModel, 'deleteProduct');
     const result = await productsService.deleteProduct(1);
 

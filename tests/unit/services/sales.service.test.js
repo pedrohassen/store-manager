@@ -29,5 +29,12 @@ describe('Testes da camada "Services", referente as vendas', () => {
     expect(result).to.be.deep.equal(serviceMocks.salesByIdReturn);
   });
 
+  it('Deleta uma venda por id', async () => {
+    sinon.stub(salesModel, 'deleteSale');
+    const result = await salesService.deleteSale(1);
+
+    expect(result).to.be.deep.equal(undefined);
+  });
+
   afterEach(sinon.restore);
 });

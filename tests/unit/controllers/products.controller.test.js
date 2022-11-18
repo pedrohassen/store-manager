@@ -86,7 +86,7 @@ describe('Testes da camada "Controllers", referente aos produtos', () => {
     expect(res.json).to.have.been.calledWith(controllerMocks.updatedProductResponse);
   });
 
-  it('Deleta um produto', async () => {
+  it('Deleta um produto por id', async () => {
     sinon.stub(productsService, 'deleteProduct');
 
     const req = { params: { id: 1 } };
