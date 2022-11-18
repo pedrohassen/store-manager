@@ -20,13 +20,12 @@ const registerNewSale = async (products) => {
 };
 
 const readAllSales = async () => {
-  const result = salesModel.readAllSales();
+  const result = await salesModel.readAllSales();
   return result;
 };
 
 const deleteSale = async (id) => {
-  const result = salesModel.deleteSale(id);
-  return result;
+  await salesModel.deleteSale(id);
 };
 
 module.exports = {

@@ -32,9 +32,16 @@ describe('Testes da camada "Services", referente aos produtos', () => {
 
   it('Atualiza um produto', async () => {
     sinon.stub(productsModel, 'updateProduct').resolves(serviceMocks.updatedProductResponse);
-    const result = await productsModel.updateProduct(1, 'ProdutoX');
+    const result = await productsService.updateProduct(1, 'ProdutoX');
 
     expect(result).to.be.deep.equal(serviceMocks.updatedProductResponse);
+  });
+
+  it('Deleta um produto', async () => {
+    sinon.stub(productsModel, 'deleteProduct');
+    const result = await productsService.deleteProduct(1);
+
+    expect(result).to.be.deep.equal(undefined);
   });
 
   afterEach(sinon.restore);
