@@ -2,6 +2,7 @@ const productsService = require('../services/products.service');
 
 const {
   HTTP_OK_STATUS,
+  HTTP_NO_CONTENT,
   HTTP_NOT_FOUND,
   HTTP_CREATED_STATUS,
 } = require('./httpStatus');
@@ -30,9 +31,16 @@ const updateProduct = async (req, res) => {
   return res.status(HTTP_OK_STATUS).json(result);
 };
 
+const deleteProduct = async (req, res) => {
+  const { id } = req.params;
+  const result = await productsService.deleteProduct(id);
+  return res.status(HTTP_NO_CONTENT).json(result);
+};
+
 module.exports = {
   readAllProducts,
   readProductId,
   insertProduct,
   updateProduct,
+  deleteProduct,
 };

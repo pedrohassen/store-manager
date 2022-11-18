@@ -4,6 +4,7 @@ const {
   readProductId,
   insertProduct,
   updateProduct,
+  deleteProduct,
 } = require('./controllers/products.controller');
 const {
   registerNewSale,
@@ -46,6 +47,8 @@ app.get('/sales', readAllSales);
 app.get('/sales/:id', saleIdValidation, getSaleById);
 
 app.put('/products/:id', productIdValidation, nameValidation, updateProduct);
+
+app.delete('/products/:id', productIdValidation, deleteProduct);
 
 // não remova essa exportação, é para o avaliador funcionar
 // você pode registrar suas rotas normalmente, como o exemplo acima
