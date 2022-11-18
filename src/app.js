@@ -5,11 +5,10 @@ const {
   insertProduct,
 } = require('./controllers/products.controller');
 
+const nameValidation = require('./middlewares/nameValidation');
+
 const app = express();
 app.use(express.json());
-
-const HTTP_OK_STATUS = 200;
-const HTTP_NOT_FOUND = 404;
 
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {
@@ -20,7 +19,7 @@ app.get('/products', readAllProducts);
 
 app.get('/products/:id', readProductId);
 
-app.post('/products', insertProduct);
+app.post('/products', nameValidation, insertProduct);
 
 // não remova essa exportação, é para o avaliador funcionar
 // você pode registrar suas rotas normalmente, como o exemplo acima

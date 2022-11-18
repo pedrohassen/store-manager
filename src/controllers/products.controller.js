@@ -1,8 +1,10 @@
 const productsServices = require('../services/products.service');
 
-const HTTP_OK_STATUS = 200;
-const HTTP_NOT_FOUND = 404;
-const HTTP_CREATED_STATUS = 201;
+const {
+  HTTP_OK_STATUS,
+  HTTP_NOT_FOUND,
+  HTTP_CREATED_STATUS,
+} = require('./httpStatus');
 
 const readAllProducts = async (_req, res) => {
   const allProducts = await productsServices.readAllProducts();
