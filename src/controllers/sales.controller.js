@@ -5,6 +5,8 @@ const {
   HTTP_CREATED_STATUS,
 } = require('./httpStatus');
 
+const test = require('./httpStatus');
+
 const registerNewSale = async (req, res) => {
   const products = req.body;
   const newSale = await salesService.registerNewSale(products);
@@ -23,6 +25,15 @@ const getSaleById = async (req, res) => {
   return res.status(HTTP_OK_STATUS).json(saleId);
 };
 
+const updateSale = async (req, res) => {
+  const { id } = req.params;
+  const sales = req.body;
+
+  const result = await salesService.updateSale(sales, id);
+  if (result.type) return res.status(test[result.type]).json({ message: result.message });
+  return res.status(HTTP_OK_STATUS).json({ saleId: id, itemsUpdated: result });
+};
+
 const deleteSale = async (req, res) => {
   const { id } = req.params;
   const result = await salesService.deleteSale(id);
@@ -33,5 +44,6 @@ module.exports = {
   registerNewSale,
   readAllSales,
   getSaleById,
+  updateSale,
   deleteSale,
 };

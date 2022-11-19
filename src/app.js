@@ -10,6 +10,7 @@ const {
   registerNewSale,
   readAllSales,
   getSaleById,
+  updateSale,
   deleteSale,
 } = require('./controllers/sales.controller');
 
@@ -48,6 +49,13 @@ app.get('/sales', readAllSales);
 app.get('/sales/:id', saleIdValidation, getSaleById);
 
 app.put('/products/:id', productIdValidation, nameValidation, updateProduct);
+
+app.put('/sales/:id',
+  productIdExists,
+  productIdExistsOnDb,
+  quantityExists,
+  quantityGreaterThanZero,
+  updateSale);
 
 app.delete('/products/:id', productIdValidation, deleteProduct);
 

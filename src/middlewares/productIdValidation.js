@@ -33,7 +33,7 @@ const productIdExistsOnDb = async (req, res, next) => {
 const saleIdValidation = async (req, res, next) => {
   const { id } = req.params;
   const result = await getSaleById(id);
-  if (!id || result.length === 0) {
+  if (result.length === 0) {
     return res.status(HTTP_NOT_FOUND).send({ message: 'Sale not found' });
   }
   next();
@@ -42,7 +42,7 @@ const saleIdValidation = async (req, res, next) => {
 const productIdValidation = async (req, res, next) => {
   const { id } = req.params;
   const result = await readProductId(id);
-  if (!id || !result) {
+  if (!result) {
     return res.status(HTTP_NOT_FOUND).send({ message: 'Product not found' });
   }
   next();
