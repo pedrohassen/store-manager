@@ -5,6 +5,7 @@ const {
   insertProduct,
   updateProduct,
   deleteProduct,
+  searchProduct,
 } = require('./controllers/products.controller');
 const {
   registerNewSale,
@@ -30,6 +31,8 @@ app.use(express.json());
 app.get('/', (_request, response) => {
   response.send();
 });
+
+app.get('/products/search', searchProduct);
 
 app.get('/products', readAllProducts);
 

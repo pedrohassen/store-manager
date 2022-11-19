@@ -25,10 +25,19 @@ const deleteProduct = async (id) => {
   await productsModel.deleteProduct(id);
 };
 
+const searchProduct = async (query) => {
+  const allProducts = await productsModel.readAllProducts();
+  const filteredProducts = allProducts.filter((item) => (
+    item.name.toLowerCase().includes(query.toLowerCase())
+  ));
+  return filteredProducts;
+};
+
 module.exports = {
   readAllProducts,
   readProductId,
   insertProduct,
   updateProduct,
   deleteProduct,
+  searchProduct,
 };
