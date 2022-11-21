@@ -5,7 +5,7 @@ const {
   HTTP_CREATED_STATUS,
 } = require('./httpStatus');
 
-const test = require('./httpStatus');
+const status = require('./httpStatus');
 
 const registerNewSale = async (req, res) => {
   const products = req.body;
@@ -30,7 +30,7 @@ const updateSale = async (req, res) => {
   const sales = req.body;
 
   const result = await salesService.updateSale(sales, id);
-  if (result.type) return res.status(test[result.type]).json({ message: result.message });
+  if (result.type) return res.status(status[result.type]).json({ message: result.message });
   return res.status(HTTP_OK_STATUS).json({ saleId: id, itemsUpdated: result });
 };
 

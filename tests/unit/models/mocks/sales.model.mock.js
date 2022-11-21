@@ -95,6 +95,17 @@ const salesByIdReturn = [
   }
 ];
 
+const updateSalesRequisition = [
+  {
+    "productId": 1,
+    "quantity": 10
+  },
+  {
+    "productId": 2,
+    "quantity": 50
+  }
+];
+
 module.exports = {
   insertDbReturn,
   selectDbReturn,
@@ -102,4 +113,5 @@ module.exports = {
   allSalesDb,
   allSalesReturn,
   salesByIdReturn,
+  updateSalesRequisition,
 };

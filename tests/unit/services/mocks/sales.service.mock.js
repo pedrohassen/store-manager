@@ -57,9 +57,43 @@ const salesByIdReturn = [
   }
 ];
 
+const updateSalesRequisition = [
+  {
+    "date": "2022-11-16T15:16:03.000Z",
+    "productId": 1,
+    "quantity": 17
+  },
+  {
+    "date": "2022-11-16T15:16:03.000Z",
+    "productId": 2,
+    "quantity": 50
+  }
+];
+
+const updatedSalesReturn = [
+  {
+    "date": "2022-11-16T15:16:03.000Z",
+    "productId": 1,
+    "quantity": 17
+  },
+  {
+    "date": "2022-11-16T15:16:03.000Z",
+    "productId": 2,
+    "quantity": 50
+  }
+];
+
+const readProductIdReturn = {
+  "id": 1,
+  "name": "Martelo de Thor"
+};
+
 module.exports = {
   registeredNewSaleReturn,
   registeredProducts,
   allSalesReturn,
   salesByIdReturn,
+  updateSalesRequisition,
+  updatedSalesReturn,
+  readProductIdReturn,
 };

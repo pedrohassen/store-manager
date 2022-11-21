@@ -57,9 +57,54 @@ const salesByIdReturn = [
   }
 ];
 
+const updatedSalesRequisition = [
+  {
+    "date": "2022-11-16T15:16:03.000Z",
+    "productId": 1,
+    "quantity": 17
+  },
+  {
+    "date": "2022-11-16T15:16:03.000Z",
+    "productId": 2,
+    "quantity": 50
+  }
+];
+
+const updatedSalesReturn = {
+    "saleId": 1,
+    "itemsUpdated": [
+      {
+        "date": "2022-11-16T15:16:03.000Z",
+        "productId": 1,
+        "quantity": 17
+      },
+      {
+        "date": "2022-11-16T15:16:03.000Z",
+        "productId": 2,
+        "quantity": 50
+      }
+    ]
+};
+  
+const wrongUpdatedSalesRequisition = [
+  {
+    "date": "2022-11-16T15:16:03.000Z",
+    "productId": 99,
+    "quantity": 17
+  },
+  {
+    "date": "2022-11-16T15:16:03.000Z",
+    "productId": 2,
+    "quantity": 50
+  }
+];
+
 module.exports = {
   registeredNewSaleReturn,
   registeredProducts,
   allSalesReturn,
   salesByIdReturn,
+  updatedSalesRequisition,
+  updatedSalesReturn,
+  wrongUpdatedSalesRequisition,
 };

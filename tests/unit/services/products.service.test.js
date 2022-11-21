@@ -44,5 +44,12 @@ describe('Testes da camada "Services", referente aos produtos', () => {
     expect(result).to.be.deep.equal(undefined);
   });
 
+  it('Procura por um produto pelo nome', async () => {
+    sinon.stub(productsModel, 'readAllProducts').resolves(serviceMocks.allProductsResponse);
+    const result = await productsService.searchProduct('martelo');
+
+    expect(result).to.be.deep.equal([serviceMocks.productResponse]);
+  });
+
   afterEach(sinon.restore);
 });

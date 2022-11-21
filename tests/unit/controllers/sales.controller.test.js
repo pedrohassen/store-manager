@@ -6,7 +6,7 @@ const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
 
 const salesService = require('../../../src/services/sales.service');
-const { registerNewSale, readAllSales, getSaleById, deleteSale } = require('../../../src/controllers/sales.controller');
+const { registerNewSale, readAllSales, getSaleById, deleteSale, updateSale } = require('../../../src/controllers/sales.controller');
 
 const controllerMocks = require('./mocks/sales.controller.mock');
 
@@ -54,6 +54,37 @@ describe('Testes da camada "Controllers", referente as vendas', () => {
 
     expect(res.status).to.have.been.calledWith(200);
     expect(res.json).to.have.been.calledWith(controllerMocks.salesByIdReturn);
+  });
+
+  it('Atualiza uma venda por id', async () => {
+    sinon.stub(salesService, 'updateSale').resolves(controllerMocks.updatedSalesRequisition);
+
+    const req = { params: { id: 1 }, body: { productId: 1, quantity: 17 } };
+    const res = {};
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    await updateSale(req, res);
+
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(controllerMocks.updatedSalesReturn);
+  });
+
+  it('Retorna a mensagem de erro na atualização de uma venda por id, caso o id da venda não exista', async () => {
+    sinon.stub(salesService, 'updateSale').resolves({ type: 'HTTP_NOT_FOUND', message: 'Sale not found' });
+
+    const req = { params: { id: 99 }, body: { productId: 1, quantity: 17 } };
+    const res = {};
+
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+
+    await updateSale(req, res);
+
+    expect(res.status).to.have.been.calledWith(404);
+    expect(res.json).to.have.been.calledWith({ message: "Sale not found" });
   });
 
   it('Deleta uma venda por id', async () => {

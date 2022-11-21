@@ -28,6 +28,18 @@ describe('Testes da camada "Models", referente as vendas', () => {
     expect(result).to.be.deep.equal(modelMocks.salesByIdReturn)
   });
 
+  it('Atualiza uma venda por id', async () => {
+    sinon.stub(connection, 'execute').resolves(modelMocks.updateSalesRequisition);
+    const requisitionBody = [{
+        "productId": 1,
+        "quantity": 17
+      }];
+
+    const result = await salesModel.updateSale(requisitionBody, 1);
+
+    expect(result).to.be.deep.equal(undefined);
+  });
+
   it('Deleta uma venda por id', async () => {
     sinon.stub(connection, 'execute');
     const result = await salesModel.deleteSale(1);
